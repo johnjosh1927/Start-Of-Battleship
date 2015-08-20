@@ -1,0 +1,39 @@
+<style>
+    .cell {
+        height: 50px;
+        width: 50px;
+        border: 1px #747474 solid;
+        margin: 0px;
+    }
+    .gameTable{
+        border: 1px #747474 solid;
+        border-spacing:0px;
+        float: left;
+        margin-right: 50px;
+    }
+
+    .ship{
+        border-radius: 25px;
+        background: navy;
+    }
+</style>
+<div>
+    <div>
+        <table id="shipsBoard" class="gameTable">
+            <tr ng-repeat="row in shipsBoard track by $index">
+                <td ng-repeat="cell in row track by $index" class="cell" ng-click="insertShip()"></td>
+            </tr>
+        </table>
+        <table  id="bombBoard" class="gameTable">
+            <tr ng-repeat="row in bombedBoard track by $index">
+                <td ng-repeat="cell in row track by $index" class="cell"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="locateShips" style="float: left;">
+        <div ng-repeat="n in ships track by $index">
+            <p ng-bind-html="n | shipsFilter"></p>
+        </div>
+    </div>
+</div>
